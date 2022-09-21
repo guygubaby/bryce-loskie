@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IoSunny, IoMoon } from 'react-icons/io5/index.js'
+import { IoMoon, IoSunny } from 'react-icons/io5/index.js'
 
 const themes = ['light', 'dark']
 
@@ -7,40 +7,48 @@ export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false)
 
   const [theme, setTheme] = useState(() => {
-    if (import.meta.env.SSR) {
+    if (import.meta.env.SSR)
       return undefined
-    }
-    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme'))
       return localStorage.getItem('theme')
-    }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches)
       return 'dark'
-    }
+
     return 'light'
   })
-  
+
   const toggleTheme = () => {
     const t = theme === 'light' ? 'dark' : 'light'
     localStorage.setItem('theme', t)
     setTheme(t)
   }
 
+  const setThemeMetaTag = () => {
+    const meta = document.querySelector('meta[name="theme-color"]')
+    if (meta)
+      meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#1e293b')
+  }
+
   useEffect(() => {
+    setThemeMetaTag()
+
     const root = document.documentElement
-    if (theme === 'light') {
+    if (theme === 'light')
       root.classList.remove('dark')
-    } else {
+    else
       root.classList.add('dark')
-    }
   }, [theme])
 
   useEffect(() => {
     setIsMounted(true)
   }, [])
 
-  return isMounted ? (
+  return isMounted
+    ? (
     <div className="inline-flex items-center p-[1px] rounded-3xl bg-gray-400 dark:bg-purple-500">
-      {themes.map(t => {
+      {themes.map((t) => {
         const checked = t === theme
         return (
           <button
@@ -56,7 +64,8 @@ export default function ThemeToggle() {
         )
       })}
     </div>
-  ) : (
+      )
+    : (
     <div />
-  )
+      )
 }

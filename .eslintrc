@@ -1,0 +1,6 @@
+{
+  "extends": ["@bryce-loskie"],
+  "plugins": [
+    "astro"
+  ]
+}

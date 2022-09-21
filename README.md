@@ -14,15 +14,15 @@ Inside of your Astro project, you'll see the following folders and files:
 
 ```
 PROJECT_ROOT
+
 ├── public              # static assets
 │   └── posts           # images of posts
-├── src
-│   ├── components      # Astro & React components
-│   │   └── icons
-│   ├── layouts         # page layouts
-│   ├── pages           # page files
-│   │   ├── categories  # category pages
-│   │   └── posts       # .md files
-│   └── styles          # global stylesheets
-└── tools               # Inkdrop integration
+└── src
+    ├── components      # Astro & React components
+    │   └── icons
+    ├── layouts         # page layouts
+    ├── pages           # page files
+    │   ├── categories  # category pages
+    │   └── posts       # .md files
+    └── styles          # global stylesheets
 ```

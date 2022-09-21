@@ -22,6 +22,7 @@ const { title, description, image = '/cover.jpg' } = Astro.props
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="theme-color" content="#ffffff" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -47,6 +48,9 @@ const { title, description, image = '/cover.jpg' } = Astro.props
     }
     return 'light'
   })()
+
+  const meta = document.querySelector('meta[name="theme-color"]')
+  meta && meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#1e293b')
 
   if (theme === 'light') {
     document.documentElement.classList.remove('dark')

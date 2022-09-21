@@ -32,7 +32,6 @@ const posts = (await Astro.glob('./posts/**/*.md')).sort(
             Let's talk about the things I'm working on, 
             the things I'm learning, and the things I'm thinking about.
             This place is just a place for me to write down my thoughts. 
-            :)
             <a
               class="inline-flex items-center gap-1 indent-1 text-violet-500"
               href={HOMEPAGE_URL}
@@ -40,7 +39,7 @@ const posts = (await Astro.glob('./posts/**/*.md')).sort(
             </a>
           </p>
         </section>
-        <section>
+        <section class="my-8">
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
               posts.map(post => (
