@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { IoMoon, IoSunny } from 'react-icons/io5/index.js'
 
 const themes = ['light', 'dark']
 
 export default function ThemeToggle() {
   const [isMounted, setIsMounted] = useState(false)
+
+  const [colorSchema] = useState(() => {
+    if (import.meta.env.SSR)
+      return null
+    return window.matchMedia('(prefers-color-scheme: dark)')
+  })
 
   const [theme, setTheme] = useState(() => {
     if (import.meta.env.SSR)
@@ -13,7 +19,7 @@ export default function ThemeToggle() {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme'))
       return localStorage.getItem('theme')
 
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+    if (colorSchema?.matches)
       return 'dark'
 
     return 'light'
@@ -31,15 +37,35 @@ export default function ThemeToggle() {
       meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#1e293b')
   }
 
-  useEffect(() => {
-    setThemeMetaTag()
-
+  const setClassName = () => {
     const root = document.documentElement
     if (theme === 'light')
       root.classList.remove('dark')
     else
       root.classList.add('dark')
+  }
+
+  useEffect(() => {
+    setThemeMetaTag()
+    setClassName()
   }, [theme])
+
+  const colorSchemeChangeHandler = useCallback((e: MediaQueryListEvent) => {
+    const t = e.matches ? 'dark' : 'light'
+    localStorage.setItem('theme', t)
+    setTheme(t)
+  }, [])
+
+  useEffect(() => {
+    if (import.meta.env.SSR || !colorSchema)
+      return () => {}
+
+    colorSchema.addEventListener('change', colorSchemeChangeHandler)
+
+    return () => {
+      colorSchema.removeEventListener('change', colorSchemeChangeHandler)
+    }
+  }, [])
 
   useEffect(() => {
     setIsMounted(true)

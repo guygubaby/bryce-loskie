@@ -50,7 +50,7 @@ const { title, description, image = '/cover.jpg' } = Astro.props
   })()
 
   const meta = document.querySelector('meta[name="theme-color"]')
-  meta && meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#1e293b')
+  meta && meta.setAttribute('content', theme === 'light' ? '#ffffff' : '#0f172a')
 
   if (theme === 'light') {
     document.documentElement.classList.remove('dark')

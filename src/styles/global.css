@@ -11,3 +11,7 @@ body {
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
 }
+
+html.dark {
+  color-schema: dark;
+}
