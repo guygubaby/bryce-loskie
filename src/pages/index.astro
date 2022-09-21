@@ -10,7 +10,7 @@ import Masthead from '../components/Masthead.astro'
 import { Image } from '@astrojs/image/components'
 import CreatedWithSection from '../components/CreatedWithSection.astro'
 
-const posts = (await Astro.glob('./posts/*.md')).sort(
+const posts = (await Astro.glob('./posts/**/*.md')).sort(
   (a: any, b: any) =>
     new Date(b.frontmatter.createdAt).valueOf() -
     new Date(a.frontmatter.createdAt).valueOf()
@@ -29,15 +29,12 @@ const posts = (await Astro.glob('./posts/*.md')).sort(
       <Content>
         <section>
           <p class="mb-8 indent-4">
-            As an indie developer, I&apos;ve been spending hours and hours at
-            my desk every day. So, I&apos;ve been continuously improving my
-            workspace in order to boost my productivity. Whenever I upload new
-            content, people ask me what tools I use. So, here is a living
-            snapshot and a place to point curious developers to when I get
-            asked. Most of the links are amazon affiliate links, so I&apos;ll
-            get filthy rich if you click them and buy something.
+            Let's talk about the things I'm working on, 
+            the things I'm learning, and the things I'm thinking about.
+            This place is just a place for me to write down my thoughts. 
+            :)
             <a
-              class="inline-flex items-center gap-1 indent-1 text-orange-500"
+              class="inline-flex items-center gap-1 indent-1 text-violet-500"
               href={HOMEPAGE_URL}
               >Learn more about me <IoArrowForward className="inline" />
             </a>

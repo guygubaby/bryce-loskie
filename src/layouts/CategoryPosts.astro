@@ -15,7 +15,7 @@ export interface Props {
 
 const { category } = Astro.props
 
-const posts = (await Astro.glob('../pages/posts/*.md'))
+const posts = (await Astro.glob('../pages/posts/**/*.md'))
   .sort(
     (a, b) =>
       new Date(b.frontmatter.createdAt).valueOf() -
@@ -38,7 +38,7 @@ const posts = (await Astro.glob('../pages/posts/*.md'))
         <section>
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
-              posts.map(post => (
+             posts.length > 0 && posts.map(post => (
                 <li class="text-center mb-4">
                   <a href={post.url}>
                     <Image
@@ -55,6 +55,12 @@ const posts = (await Astro.glob('../pages/posts/*.md'))
               ))
             }
           </ul>
+
+          {
+            posts.length === 0 && <h1 class="text-3xl text-center font-mplus mt-12 mb-8">
+              Oops, current tag has no content yet.
+            </h1>
+          }
         </section>
       </Content>
       <Footer />

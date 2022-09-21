@@ -1,6 +1,7 @@
 import { Menu, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
 import { IoMenu } from 'react-icons/io5/index.js'
+import { AllCategories } from '../constants/categories'
 import DropdownMenuItem from './DropdownMenuItem'
 
 export default function DropdownMenu() {
@@ -29,13 +30,11 @@ export default function DropdownMenu() {
             <div className="px-3 py-2 uppercase font-bold text-xs">
               Categories
             </div>
-            <DropdownMenuItem href="/categories/computing">
-              Computing
-            </DropdownMenuItem>
-            <DropdownMenuItem href="/categories/desk">Desk</DropdownMenuItem>
-            <DropdownMenuItem href="/categories/videography">
-              Videography
-            </DropdownMenuItem>
+            {AllCategories.map(cate => (
+              <DropdownMenuItem key={cate.id} href={cate.href}>
+                {cate.name}
+              </DropdownMenuItem>
+            ))}
           </div>
         </Menu.Items>
       </Transition>
