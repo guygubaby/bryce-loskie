@@ -1,11 +1,12 @@
 import { Menu } from '@headlessui/react'
-import React, { ReactNode } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-type Props = {
+interface Props {
   href: string
   children: ReactNode
 }
@@ -17,8 +18,8 @@ export default function DropdownMenuItem({ href, children }: Props) {
         <a
           href={href}
           className={classNames(
-            active ? 'bg-orange-200 dark:bg-zinc-700' : '',
-            'block px-4 py-2 text-sm'
+            active ? 'bg-violet-200 dark:bg-zinc-700' : '',
+            'block px-4 py-2 text-sm',
           )}
         >
           {children}
