@@ -8,16 +8,16 @@ export const AllCategories: ICategory[] = [
   {
     id: 'history',
     name: 'History',
-    href: '/categories/history'
+    href: '/categories/history',
   },
   {
     id: 'frontend',
     name: 'Frontend',
-    href: '/categories/frontend'
+    href: '/categories/frontend',
   },
   {
     id: 'lifeStyle',
     name: 'Life Style',
-    href: '/categories/lifeStyle'
-  }
+    href: '/categories/lifeStyle',
+  },
 ]
