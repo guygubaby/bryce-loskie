@@ -7,6 +7,7 @@ slug: india-and-china
 public: true
 layout: ../../../layouts/BlogPost.astro
 heroImage: /posts/2022-9-21/china-and-india.jpg
+heroImageFormat: jpg
 createdAt: 2022-9-21 19:35:00
 updatedAt: 2022-9-21 19:35:00
 ---

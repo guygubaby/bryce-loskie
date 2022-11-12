@@ -7,6 +7,7 @@ slug: Russia and putin
 public: true
 layout: ../../../layouts/BlogPost.astro
 heroImage: /posts/2022-9-22/russia-and-putin.jpeg
+heroImageFormat: jpeg
 createdAt: 2022-9-22 15:57:00
 updatedAt: 2022-9-22 15:57:00
 ---
