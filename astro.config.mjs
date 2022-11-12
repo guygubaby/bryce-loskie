@@ -8,7 +8,10 @@ import addClasses from 'rehype-add-classes'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://bryce-loskie.netlify.app/',
-  integrations: [sitemap(), react(), image(), tailwind()],
+  integrations: [sitemap(), react(), image({
+    cacheDir: false,
+    serviceEntryPoint: '@astrojs/image/sharp',
+  }), tailwind()],
   markdown: {
     extendDefaultPlugins: true,
     rehypePlugins: [
