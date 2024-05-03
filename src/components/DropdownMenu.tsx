@@ -1,6 +1,6 @@
 import { Menu, Transition } from '@headlessui/react'
 import React, { Fragment } from 'react'
-import { IoMenu } from 'react-icons/io5/index.js'
+import { IoIosMenu } from 'react-icons/io'
 import { AllCategories } from '../constants/categories'
 import DropdownMenuItem from './DropdownMenuItem'
 
@@ -12,7 +12,7 @@ export default function DropdownMenu() {
           className="inline-flex justify-center rounded-md border border-zinc-400 dark:border-zinc-700 px-2 py-2 text-sm font-medium shadow-sm hover:bg-violet-200 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 transition-all"
           aria-label="menu"
         >
-          <IoMenu className="h-5 w-5" />
+          <IoIosMenu className="h-5 w-5" />
         </Menu.Button>
       </div>
 
@@ -41,4 +41,3 @@ export default function DropdownMenu() {
     </Menu>
   )
 }
-

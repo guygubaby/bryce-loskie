@@ -11,24 +11,29 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.11.4",
-    "@astrojs/react": "^1.2.2",
-    "@astrojs/rss": "^1.0.3",
-    "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/tailwind": "^2.1.2",
-    "@headlessui/react": "^1.7.4",
-    "astro": "^1.6.7",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.6.0",
-    "sharp": "^0.31.2",
-    "tailwindcss": "^3.2.4"
+    "@astrojs/image": "^0.18.0",
+    "@astrojs/react": "^3.3.2",
+    "@astrojs/rss": "^4.0.5",
+    "@astrojs/sitemap": "^3.1.4",
+    "@astrojs/tailwind": "^5.1.0",
+    "@headlessui/react": "^1.7.19",
+    "astro": "^4.7.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "~5.x.x",
+    "sharp": "^0.33.3",
+    "tailwindcss": "^3.4.3"
   },
   "devDependencies": {
-    "@bryce-loskie/eslint-config": "^2.0.7",
-    "@types/react": "^18.0.25",
-    "eslint": "^8.27.0",
-    "eslint-plugin-astro": "^0.21.0",
+    "@antfu/eslint-config": "^2.16.1",
+    "@bryce-loskie/eslint-config": "^2.2.0",
+    "@eslint-react/eslint-plugin": "^1.5.10",
+    "@types/react": "^18.3.1",
+    "eslint": "^9.1.1",
+    "eslint-plugin-astro": "^1.1.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.4",
+    "prettier": "^3.2.5",
     "rehype-add-classes": "^1.0.0"
   }
 }
