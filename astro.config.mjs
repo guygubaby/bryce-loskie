@@ -1,17 +1,13 @@
 import { defineConfig } from 'astro/config'
 import sitemap from '@astrojs/sitemap'
 import react from '@astrojs/react'
-import image from '@astrojs/image'
 import tailwind from '@astrojs/tailwind'
 import addClasses from 'rehype-add-classes'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://bryce-loskie.netlify.app/',
-  integrations: [sitemap(), react(), image({
-    cacheDir: false,
-    serviceEntryPoint: '@astrojs/image/sharp',
-  }), tailwind()],
+  integrations: [sitemap(), react(), tailwind()],
   markdown: {
     extendDefaultPlugins: true,
     rehypePlugins: [
